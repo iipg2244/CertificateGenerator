@@ -1,4 +1,4 @@
-﻿using CertificateGenerator;
+using CertificateGenerator;
 
 if (args.Length < 3)
 {
