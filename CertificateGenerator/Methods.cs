@@ -58,6 +58,15 @@ public static class Methods
         }
     }
 
+    public static string CreateFolderInProgramPath(string folderName)
+    {
+        string fullPath = Path.Combine(GetFullPathApp(), RemoveInvalidPathChars(folderName));
+        CreateFolder(fullPath);
+        return fullPath;
+    }
+
+    private static string GetFullPathApp() => AppDomain.CurrentDomain.BaseDirectory[..^1];
+
     private static string RemoveInvalidFileNameChars(string text, char replace = '_')
     {
         foreach (char c in Path.GetInvalidFileNameChars())
